@@ -15,6 +15,8 @@ import jwtDecode from "jwt-decode";
 import ProtectedRoute from "./Components/protectedRoute/protectedRoute";
 import ProductDetails from "./Components/ProductDetails/ProductDetails";
 import CartContextProvider from "./Context/CartContext";
+import { Provider } from "react-redux";
+import { Store } from "./Redux/Store";
 
 function App() {
   const [userData, setUserData] = useState(null);
@@ -77,7 +79,6 @@ function App() {
             </ProtectedRoute>
           ),
         },
-
         { path: "login", element: <Login saveUserData={saveUserData} /> },
         { path: "register", element: <Register /> },
         { path: "forget-password", element: <ForgetPassword /> },
@@ -90,8 +91,10 @@ function App() {
   return (
     <>
       {" "}
-     <CartContextProvider><RouterProvider router={routes}></RouterProvider></CartContextProvider>
-        
+
+<CartContextProvider>     <Provider store={Store}><RouterProvider router={routes}></RouterProvider></Provider>
+</CartContextProvider>
+
       
     </>
   );

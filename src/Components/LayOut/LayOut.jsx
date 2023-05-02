@@ -4,7 +4,7 @@ import Footer from '../Footer/Footer';
 import styles from './LayOut.module.css'
 import { Outlet, useNavigate } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
-
+import { Offline, Online } from "react-detect-offline";
 export default function LayOut({setUserData,userData}) {
   let navigate = useNavigate();
 
@@ -19,6 +19,8 @@ export default function LayOut({setUserData,userData}) {
      <Outlet/>
      <Toaster/>
      <Footer/>
+    
+    <Offline>Only shown offline (surprise!)</Offline>
     </>
   )
 }

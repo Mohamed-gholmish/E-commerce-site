@@ -8,9 +8,7 @@ import { cartContext } from '../../Context/CartContext';
 import { useContext } from 'react';
 import toast from 'react-hot-toast';
 
-
 const baseUrl = "https://route-ecommerce.onrender.com";
-
 export default function FeatureProduct() {
   const [allProduct, setProduct] = useState([]);
   let {addToCart}= useContext(cartContext);
@@ -34,16 +32,16 @@ export default function FeatureProduct() {
   return (
  <>
 <div className="row">{allProduct.map((product)=>{
-  return <div className='col-md-2 p-2' key={product._id}>
-    <Link to={`/products/${product._id}`}>   <img src={product.imageCover} className='w-100' alt="" />
+  return <div className='col-md-2 p-2  ' key={product._id}>
+    <div className="product h-100 d-flex flex-column">    <Link to={`/products/${product._id}`} className=" text-decoration-none">   <img src={product.imageCover} className='w-100' alt="" />
     <p className=' text-main'>{product.title.split(' ').slice(0,3).join(' ')}</p>
+
     <div className="box d-flex justify-content-between"><span>{product.ratingsAverage} <i className=' fa-solid fa-star rating-color'></i> </span>
     <span>{product.price}EGP</span>
     </div></Link>
-    <button className=' w-100 bg-main text-white my-4 btn' onClick={()=>{addProduct(product._id)}}>Add +</button>
+    <button className=' w-100 bg-mainmy-4 btn btn-outline-success mt-auto ' onClick={()=>{addProduct(product._id)}}>Add +</button></div>
+
   </div>
   
-})}</div>
- </>
-  )
+})}</div></>)
 }
