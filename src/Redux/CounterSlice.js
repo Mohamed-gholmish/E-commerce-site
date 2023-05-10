@@ -16,5 +16,6 @@ let counterSlice = createSlice({
         }
     }
 })
+
 export let counterReducer = counterSlice.reducer;
 export let {increase,decrease,increamntByAmount} = counterSlice.actions

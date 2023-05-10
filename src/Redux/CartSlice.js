@@ -4,7 +4,7 @@ let token = localStorage.getItem('userToken');
 let x = {counterNum:0}
 export let getCounterNum = createAsyncThunk('cartCounter/getCounterNum',async ()=>{
     let {data} =await  axios.get('https://route-ecommerce.onrender.com/api/v1/cart',{headers:{token}});
-    
+    console.log("ok ok");
     console.log(data);
 })
 let cartCountSlice = createSlice({

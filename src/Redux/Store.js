@@ -6,6 +6,6 @@ export let Store = configureStore({
   reducer: {
     counter:counterReducer,
     products : productReducer,
-    counterNum:counterReducer
+    counterNum:counterReducer,
   },
 });
