@@ -7,8 +7,12 @@ import { Link } from "react-router-dom";
 import { cartContext } from "../../Context/CartContext";
 import { useContext } from "react";
 import toast from "react-hot-toast";
+import { useDispatch, useSelector } from "react-redux";
+import { addToChart } from "../../Redux/CartSlice";
 const baseUrl = "https://route-ecommerce.onrender.com";
 export default function FeatureProduct() {
+  let dispatch = useDispatch();
+
   const [allProduct, setProduct] = useState([]);
   let { addToCart } = useContext(cartContext);
   async function addProduct(productId) {
@@ -59,7 +63,8 @@ export default function FeatureProduct() {
                 <button
                   className=" w-100 bg-mainmy-4 btn btn-outline-success mt-auto "
                   onClick={() => {
-                    addProduct(product._id);
+                    // addProduct(product._id);
+                    dispatch(addToChart());
                   }}
                 >
                   Add +

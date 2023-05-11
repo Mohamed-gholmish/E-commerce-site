@@ -28,7 +28,7 @@ export default function Products() {
               <button className='btn btn-success ' onClick={()=>{dispatch(increamntByAmount(10))}}> amount</button>
             </div></div> */}
             <div className="container"><div className="row">{products.map((product)=>{
-            return <div className="col-md-2"><img src={product.images[0]} alt="" className='w-100' /><p>{product.title }</p></div>
+            return <div className="col-md-2" key={product.id}><img src={product.images[0]} alt="" className='w-100' /><p>{product.title }</p></div>
             })}</div></div>
     </div>
 

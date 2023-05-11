@@ -5,12 +5,13 @@ import Logoo from '../../assets/images/freshcart-logo.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { useContext } from 'react';
-import { cartContext } from '../../Context/CartContext';
+
 
 export default function NavBar({userData,logOut}) {
-  let {cartCount} = useContext(cartContext);
 
+  let {counterNum}= useSelector((state)=>state.counterNum);
+
+ let  dispatch = useDispatch();
   console.log(userData);
   return (
     <>
@@ -43,7 +44,7 @@ export default function NavBar({userData,logOut}) {
       <i className=' fa-brands fa-instagram text-white mx-2' ></i>
       <i className=' fa-brands fa-youtube text-white mx-2' ></i>
       </li>
-      <li className='d-flex align-items-center mx-2 text-white cartCount'><i className="fa-solid fa-cart-shopping "></i><span className=' badge bg-info'>{cartCount}</span></li>
+      <li className='d-flex align-items-center mx-2 text-white cartCount' ><i className="fa-solid fa-cart-shopping "></i><span className=' badge bg-info'>{counterNum}</span></li>
 
       <li className='d-flex align-items-center mx-2 text-white'></li>
      {userData ===  null? <>  <li className="nav-item">
